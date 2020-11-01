@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sudoku Solver</title>
+        <link rel="stylesheet" href="/static/lib/style.css" />
+    </head>
+    <body>
+
+    	<header>
+    		<h1>Sudoku Solver</h1>
+    	</header>
+
+    	<div id="sudoku_solver">
+	    	<div id="number_input">
+	    		<form method="get">
+		    	{% block content %}
+		    	{% set count = namespace(value=0) %}
+		    	<table>
+		    		{% for i in range(3) -%}
+		    		<tr>
+		    			{% for j in range(3) -%}
+		    			<th id="outer_th">
+		    				<table>
+		    					{% for k in range(3) -%}
+		    					<tr>
+									{% for n in range(3) -%}
+									<th id="inner_th_input"><input type="text", name="{{content[count.value]}}", id="input_field", maxlength="1", value="{{sudoku[count.value]}}"></input></th>
+									{% set count.value = count.value + 1 %}
+									{%- endfor%}
+		    					</tr>
+		    					{%- endfor%}
+		    				</table>
+		    			</th>
+		        		{%- endfor%}
+		        	</tr>
+		    		{%- endfor%}
+		    	</table>
+
+		    	<div id="solve_button">
+		    		{% if error_message != '' -%}
+		    		<h3>{{error_message}}</h3>
+		    		{%- endif%}
+		    		<input type="submit" value="Solve!"></input>
+		    	</div>
+
+		    	<div id="solve_button">
+		    		<a href="/">clear</a>
+		    	</div>
+
+		    	</form>
+	    	</div>
+
+	    <div id="number_output">	
+	    	{% set count = namespace(value=0) %}    	
+	    	<table>
+	    		{% for i in range(3) -%}
+	    		<tr>
+	    			{% for j in range(3) -%}
+	    			<th id="outer_th">
+	    				<table>
+	    					{% for k in range(3) -%}
+		    				<tr>
+								{% for n in range(3) -%}
+								<th id="inner_th">
+								{%- if sudoku[count.value] != '' -%}<span style = "color: black">{%- endif %}
+								{%- if sudoku[count.value] == '' -%}<span style = "color: grey">{%- endif %}
+								{%- if error_message == '' %}{{solution[count.value]}}{%- endif %}
+								{%- if sudoku[count.value] != '' %}</span>{%- endif -%}
+								{%- if sudoku[count.value] == '' %}</span>{%- endif -%}
+								</th>
+								{% set count.value = count.value + 1 %}
+								{%- endfor %}
+		    				</tr>
+	    					{%- endfor %}
+	    				</table>	
+	    			</th>
+	        		{%- endfor %}
+	        	</tr>
+	    		{%- endfor %}
+	        {% endblock %}
+	    	</table>
+
+
+		    <div id="messege_field">
+		    	<h3></h3>
+		    </div>
+
+	    </div>
+	</div>
+
+    </body>
+</html>

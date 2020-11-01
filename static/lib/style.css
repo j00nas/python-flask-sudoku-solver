@@ -1,0 +1,66 @@
+body {
+	background-color: white;
+}
+
+header{
+	border-bottom: 1px solid black;
+	padding-left: 2em;
+}
+
+.navigation_bar{
+	border: 1px solid black;
+	list-style-type: none;
+}
+
+table{
+	margin: 0 auto;
+}
+
+#outer_th{
+	border: 1px solid lightgrey;
+}
+
+#inner_th{
+	border: 1px solid grey;
+	height: 2em;
+	width: 2em;
+	margin: 0;
+	padding: 0;
+}
+
+#inner_th_input{
+	height: 2em;
+	width: 2em;
+}
+
+#input_field{
+	width: 1.5em;
+	height: 2em;
+	margin: 0;
+	padding: 0;
+	padding-left: 0.5em;
+}
+
+#sudoku_solver{
+	border-bottom: 1px solid grey;
+	display: inline-block;
+	text-align: center;
+	width: 100%
+}
+
+#number_input, #number_output{
+	border: 1px solid black;
+	margin: 1em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#solve_button{
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+#message_field.h3{
+	margin: 0;
+}
